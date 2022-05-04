@@ -86,7 +86,7 @@ echo "--------------STEP1: Get $DOMAIN DNS_ID--------------"
 idcontent=$(curl -sX GET "https://api.cloudflare.com/client/v4/zones/$ZONEID/dns_records?name=$DOMAIN&type=$TYPE" \
     -H "Authorization: Bearer $CF_API_KEY" \
     -H "Content-Type: application/json")
-echo $content | python3 -c "import json, sys; from pprint import pprint; pprint(json.load(sys.stdin))"
+echo $idcontent | python3 -c "import json, sys; from pprint import pprint; pprint(json.load(sys.stdin))"
 echo "-----------------------------------------------------"
 
 STATE=$(echo $idcontent | jq '.success' | cut -d'"' -f 2)
@@ -146,7 +146,7 @@ echo "--------------STEP1: Get $DOMAIN DNS_ID--------------"
 idcontent=$(curl -sX GET "https://api.cloudflare.com/client/v4/zones/$ZONEID/dns_records?name=$DOMAIN&type=$TYPE" \
     -H "Authorization: Bearer $CF_API_KEY" \
     -H "Content-Type: application/json")
-echo $content | python3 -c "import json, sys; from pprint import pprint; pprint(json.load(sys.stdin))"
+echo $idcontent | python3 -c "import json, sys; from pprint import pprint; pprint(json.load(sys.stdin))"
 echo "-----------------------------------------------------"
 
 STATE=$(echo $idcontent | jq '.success' | cut -d'"' -f 2)
